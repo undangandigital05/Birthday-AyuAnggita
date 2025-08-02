@@ -323,24 +323,30 @@
 
   <!-- Slider Galeri -->
   <div class="relative w-[200px] md:w-[300px] overflow-hidden rounded-lg shadow-lg scroll-animate">
-    <!-- Wrapper Gambar -->
-    <div id="slider" class="flex transition-transform duration-500 ease-in-out">
-      <img src="./img/foto/galeri1.jpg" class="w-full flex-shrink-0" />
-      <img src="./img/foto/galeri2.jpg" class="w-full flex-shrink-0" />
-      <img src="./img/foto/galeri3.jpg" class="w-full flex-shrink-0" />
-      <img src="./img/foto/cover.jpg" class="w-full flex-shrink-0" />
-    </div>
-
-    <!-- Tombol Kiri -->
-    <button id="prev" class="absolute top-1/2 left-3 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full hover:bg-black">
-      &#10094;
-    </button>
-
-    <!-- Tombol Kanan -->
-    <button id="next" class="absolute top-1/2 right-3 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full hover:bg-black">
-      &#10095;
-    </button>
+  <!-- Wrapper Gambar -->
+  <div id="slider" class="flex transition-transform duration-500 ease-in-out">
+    <img src="./img/foto/galeri1.jpg" class="w-full flex-shrink-0 cursor-pointer lightbox-img" />
+    <img src="./img/foto/galeri2.jpg" class="w-full flex-shrink-0 cursor-pointer lightbox-img" />
+    <img src="./img/foto/galeri3.jpg" class="w-full flex-shrink-0 cursor-pointer lightbox-img" />
+    <img src="./img/foto/cover.jpg" class="w-full flex-shrink-0 cursor-pointer lightbox-img" />
   </div>
+
+  <!-- Tombol Kiri -->
+  <button id="prev" class="absolute top-1/2 left-3 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full hover:bg-black">
+    &#10094;
+  </button>
+
+  <!-- Tombol Kanan -->
+  <button id="next" class="absolute top-1/2 right-3 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full hover:bg-black">
+    &#10095;
+  </button>
+</div>
+
+<!-- Lightbox Overlay -->
+<div id="lightbox" class="hidden fixed inset-0 backdrop-blur-sm flex items-center justify-center z-[50]">
+  <img id="lightbox-img" src="" class="max-w-[80%] max-h-[80%] rounded-lg shadow-lg" />
+</div>
+
 </div>
       <!-- RSVP Form -->
       <div class="scroll-animate max-w-lg mx-auto p-5 italic">
@@ -545,18 +551,22 @@
 
     <!-- galeri -->
      <script>
-  const slider = document.getElementById('slider');
+        const slider = document.getElementById('slider');
   const prev = document.getElementById('prev');
   const next = document.getElementById('next');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const images = document.querySelectorAll('.lightbox-img');
 
-  const totalSlides = slider.children.length;
   let index = 0;
+  const totalSlides = slider.children.length;
 
+  // Update slider
   function updateSlider() {
     slider.style.transform = `translateX(-${index * 100}%)`;
   }
 
-  // Navigasi manual
+  // Tombol navigasi
   next.addEventListener('click', () => {
     index = (index + 1) % totalSlides;
     updateSlider();
@@ -567,12 +577,25 @@
     updateSlider();
   });
 
-  // Auto slide setiap 3 detik
+  // Auto slide
   setInterval(() => {
     index = (index + 1) % totalSlides;
     updateSlider();
   }, 3000);
-</script>
+
+  // Klik gambar -> tampilkan lightbox
+  images.forEach(img => {
+    img.addEventListener('click', () => {
+      lightbox.classList.remove('hidden');
+      lightboxImg.src = img.src;
+    });
+  });
+
+  // Klik di luar gambar -> tutup lightbox
+  lightbox.addEventListener('click', () => {
+    lightbox.classList.add('hidden');
+  });
+    </script>
 
   </body>
 </html>
