@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birthday-Ayu Anggita</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Cinzel:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <style>
+      /* Custom animations yang tidak bisa dibuat dengan Tailwind */
+      @keyframes blurToClear {
+        from {
+          filter: blur(10px);
+          opacity: 0;
+          transform: scale(1.05);
+        }
+        to {
+          filter: blur(0);
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes glow {
+        from {
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3),
+            0 0 10px rgba(164, 126, 45, 0.728);
+        }
+        to {
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3),
+            0 0 20px rgba(255, 210, 105, 0.8), 0 0 30px rgba(243, 232, 133, 0.6);
+        }
+      }
+
+      @keyframes slideUpOnScroll {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Custom classes */
+      .hero-bg {
+        background-image: url("./img/fix.jpg");
+      }
+
+      .hero-content {
+        animation: fadeInUp 1s ease-out;
+      }
+
+      .hero-title {
+        background: linear-gradient(45deg, #C9B194, #A08963, #706D54);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3);
+        animation: glow 2s ease-in-out infinite alternate;
+      }
+
+      .button-gradient {
+        background: linear-gradient(45deg, #C9B194, #A08963, #A08963);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .button-gradient::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .button-gradient:hover::before {
+        left: 100%;
+      }
+
+      .foto {
+        width: 73%;
+        height: 73%;
+        animation: blurToClear 1.2s ease-out forwards;
+      }
+
+      .ornamen {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        width: 85%;
+        height: 85%;
+        pointer-events: none;
+        opacity: 0;
+        animation: slideUp 1s ease-out forwards;
+        animation-delay: 0.3s;
+      }
+
+      .scroll-animate {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .scroll-animate.show {
+        animation: slideUpOnScroll 0.8s ease-out forwards;
+      }
+
+      .caveat-font {
+        font-family: "Caveat", cursive;
+      }
+
+      .cinzel-font {
+        font-family: "Cinzel", serif;
+      }
+    </style>
+  </head>
+  <body class="h-full w-full m-0 p-0">
+    <!-- Hero Section -->
+    <div
+      id="hero"
+      class="hero-bg bg-cover bg-center h-screen w-full flex items-center justify-center"
+    >
+      <div class="hero-content relative z-10 text-center text-white px-8">
+        <div
+          class="relative w-60 h-60 mx-auto flex justify-center items-center"
+        >
+          <img
+            src="./img/foto/cover.jpg"
+            alt="Foto"
+            class="foto object-cover rounded-full shadow-lg"
+          />
+          <img src="./img/bingkaii-ayu.png" alt="Ornamen" class="ornamen" />
+        </div>
+        <h1 class="hero-title cinzel-font text-3xl md:text-5xl font-bold mb-5">
+          Undangan Ulang Tahun
+        </h1>
+        <h2
+          class="caveat-font text-3xl md:text-4xl font-semibold mb-3 text-black"
+          style="text-shadow: 2px 2px 4px rgba(255, 252, 252, 0.5)"
+        >
+            Ayu Anggita
+          </a>
+        </h2>
+
+        <p
+          class="text-xl md:text-2xl mb-6 text-black font-medium"
+          style="text-shadow: 1px 1px 2px rgba(255, 252, 252, 0.5)"
+        >
+          Jumat, 8 Agustus 2025
+        </p>
+        <h3
+          class="text-xl md:text-2xl mb-2 text-black italic"
+          style="text-shadow: 1px 1px 2px rgba(255, 252, 252, 0.5)"
+        >
+          Dear
+        </h3>
+        <span
+          id="namaTamu"
+          class="caveat-font text-3xl md:text-2xl font-bold text-black px-6 py-2 mb-2 inline-block"
+          >Tamu</span
+        >
+        <div>
+          <a
+            href="#"
+            class="button-gradient inline-flex items-center gap-2 px-4 py-2 text-white no-underline rounded-full font-semibold text-lg transition-all duration-300 border-2 border-white border-opacity-30 mt-3"
+            style="
+              box-shadow: 0 4px 15px rgba(255, 203, 90, 0.728);
+              text-shadow: 1px 1px 2px rgba(150, 125, 26, 0.3);
+            "
+            id="openInvitation"
+            onclick="openInvitation()"
+          >
+            <i class="bi bi-envelope-paper-fill"></i>Buka Undangan
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <section class="hidden px-6" id="pembukaan">
+      <div
+        class="scroll-animate flex items-center justify-center py-12 bg-white"
+      >
+        <div class="w-32">
+          <img
+            src="./img/bunga-ayu.png"
+            alt="Bunga Ulang Tahun"
+            class="w-full h-auto"
+          />
+        </div>
+      </div>
+
+      <!-- Opening Text -->
+      <div class="scroll-animate px-1 -mt-4">
+        <p class="text-base text-center scroll-animate">
+          Kamu Diundang <br />
+          Untuk menghadiri sebuah malam istimewa dalam rangka merayakan<br />
+          My Sweet 17th Birthday <br />
+          <span class="caveat-font text-2xl text-black scroll-animate"
+            >Ni Komang Ayu Anggita Rinada</span
+          >
+          <br />
+          Mari kita rayakan momen berharga ini dengan tawa, kebahagiaan, dan kenangan tak terlupakan. <br/>
+            Kami berharap kehadiranmu dalam:
+        </p>
+      </div>
+
+      <!-- Countdown -->
+      <div
+        class="flex justify-center gap-2 mt-10 flex-nowrap px-2"
+      >
+        <div
+          class="scroll-animate bg-[#C9B194] text-white w-16 h-16 md:w-20 md:h-20 rounded-full flex flex-col justify-center items-center shrink-0"
+        >
+          <span id="days" class="text-base font-bold">0</span>
+          <small class="text-xs mt-1">Hari</small>
+        </div>
+        <div
+          class="scroll-animate bg-[#C9B194] text-white w-16 h-16 md:w-20 md:h-20 rounded-full flex flex-col justify-center items-center shrink-0"
+        >
+          <span id="hours" class="text-base font-bold">0</span>
+          <small class="text-xs mt-1">Jam</small>
+        </div>
+        <div
+          class="scroll-animate bg-[#C9B194] text-white w-16 h-16 md:w-20 md:h-20 rounded-full flex flex-col justify-center items-center shrink-0"
+        >
+          <span id="minutes" class="text-base font-bold">0</span>
+          <small class="text-xs mt-1">Menit</small>
+        </div>
+        <div
+          class="scroll-animate bg-[#C9B194] text-white w-16 h-16 md:w-20 md:h-20 rounded-full flex flex-col justify-center items-center shrink-0"
+        >
+          <span id="seconds" class="text-base font-bold">0</span>
+          <small class="text-xs mt-1">Detik</small>
+        </div>
+      </div>
+
+      <!-- Event Info -->
+      <div
+        class="scroll-animate bg-[#C9B194] border-2 border-orange-200 rounded-xl p-6 max-w-lg mx-auto my-10 shadow-lg text-center"
+      >
+        <h3 class="scroll-animate cinzel-font text-2xl text-white mb-2">
+          <i class="bi bi-calendar-event scroll-animate"></i> Tanggal
+        </h3>
+        <h4 class="caveat-font text-2xl text-white mb-4">
+          Jumat 8 Agustus 2025
+        </h4>
+        <h3 class="scroll-animate cinzel-font text-2xl text-white mb-2">
+          <i class="bi bi-alarm scroll-animate"></i> Jam
+        </h3>
+        <h4 class="caveat-font text-2xl text-white mb-4">19.00-Selesai</h4>
+        <div class="scroll-animate">
+          <a
+            href="https://maps.app.goo.gl/652SV8kkcUu9UHwYA"
+            class="scroll-animate inline-block bg-[#A08963] text-white no-underline px-5 py-3 rounded-lg font-bold transition-colors duration-300"
+          >
+            Lihat Lokasi <i class="bi bi-geo-alt"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Dress Code -->
+      <div class="scroll-animate p-5 max-w-lg mx-auto my-5">
+        <h3 class="cinzel-font text-[#A08963] text-xl mb-3">Dress Code:</h3>
+        <p class=" text-black text-lg m-0">
+        Hitam <br/>
+        Kenakan busana terbaikmu berwarna hitam elegan untuk menyempurnakan momen spesial ini.          
+        <i class="bi bi-heart text-[#A08963]"></i>
+        </p>
+      </div>
+
+      <!-- galeri -->
+       <div class="flex flex-col items-center space-y-4">
+        <h2 class="text-[#A08963] text-4xl cinzel-font scroll-animate ">Galeri</h2>
+
+  <!-- Slider Galeri -->
+  <div class="relative w-[200px] md:w-[300px] overflow-hidden rounded-lg shadow-lg scroll-animate">
+    <!-- Wrapper Gambar -->
+    <div id="slider" class="flex transition-transform duration-500 ease-in-out">
+      <img src="./img/foto/galeri1.jpg" class="w-full flex-shrink-0" />
+      <img src="./img/foto/galeri2.jpg" class="w-full flex-shrink-0" />
+      <img src="./img/foto/galeri3.jpg" class="w-full flex-shrink-0" />
+      <img src="./img/foto/cover.jpg" class="w-full flex-shrink-0" />
+    </div>
+
+    <!-- Tombol Kiri -->
+    <button id="prev" class="absolute top-1/2 left-3 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full hover:bg-black">
+      &#10094;
+    </button>
+
+    <!-- Tombol Kanan -->
+    <button id="next" class="absolute top-1/2 right-3 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full hover:bg-black">
+      &#10095;
+    </button>
+  </div>
+</div>
+      <!-- RSVP Form -->
+      <div class="scroll-animate max-w-lg mx-auto p-5 italic">
+        <h3 class="cinzel-font text-center text-base mb-4 mt-12">
+          Kami menantikan kehadiran anda
+        </h3>
+        <!-- <p class="text-center text-sm mb-5">Kami menantikan kehadiran anda</p> -->
+        <form
+          method="POST"
+          action="https://script.google.com/macros/s/AKfycbwW3gK49clrjE37H9EbgXWiEe_42q84fbvvsB9HpqOlC-BlDCXDBZ-wpCeXWgurWajS/exec"
+          id="my-form"
+        >
+          <input
+            name="nama"
+            type="text"
+            placeholder="Nama"
+            required
+            class="w-full py-4 px-5 mb-5 border border-[#706D54] rounded-2xl text-base font-bold text-center bg-transparent text-gray-800"
+          />
+
+          <select
+            name="status"
+            required
+            class="w-full py-4 px-5 mb-5 border border-[#706D54] rounded-2xl text-base font-bold text-center bg-transparent text-gray-800"
+          >
+            <option value="">Kehadiran</option>
+            <option value="Hadir">Hadir</option>
+            <option value="Tidak Hadir">Tidak Hadir</option>
+          </select>
+
+          <textarea
+            name="pesan"
+            placeholder="Pesan..."
+            required
+            class="w-full py-4 px-5 mb-5 border border-[#706D54] rounded-2xl text-base font-normal text-left bg-transparent text-gray-800 resize-y min-h-32"
+          ></textarea>
+
+          <button
+            name="submit"
+            type="submit"
+            class="w-full py-4 px-5 bg-[#A08963] text-white border-none rounded-2xl text-base font-bold cursor-pointer transition-colors duration-300 "
+          >
+            Kirimkan Pesan
+          </button>
+        </form>
+      </div>
+
+      <!-- Closing -->
+      <div class="scroll-animate">
+        <h3 class="cinzel-font text-center text-3xl mt-12 mb-4">Thank You</h3>
+        <p class="text-[#A08963] text-center">
+          Tidak sabar untuk merayakan bersama kamu!
+        </p>
+        <br />
+        <p class="text-[#A08963] text-center">With love,</p>
+        <br />
+        <p class="text-[#A08963] text-center">[ Ayu Anggita ]</p>
+      </div>
+
+      <!-- Footer -->
+      <footer
+        class="bg-gray-100 py-5 text-center mt-10 border-t border-gray-300"
+      >
+        <div class="max-w-3xl mx-auto">
+          <p class="text-gray-600 my-2 text-sm">&copy;Undangan.digital.05</p>
+          <div class="footer-icons">
+            <a
+              href="https://wa.me/6282144312105"
+              target="_blank"
+              class="text-gray-500 mx-3 text-xl transition-colors duration-300 hover:text-[#A08963]"
+            >
+              <i class="bi bi-whatsapp"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/undangan.digital.05/"
+              target="_blank"
+              class="text-gray-500 mx-3 text-xl transition-colors duration-300 hover:text-[#A08963]"
+            >
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a
+              href="https://open.spotify.com/playlist/4Ph4N32M09i347Z3SalMFp?si=Tmih3cgDR72uKRX4mlP3Og"
+              class="text-gray-500 mx-3 text-xl transition-colors duration-300 hover:text-[#A08963]"
+            >
+              <i class="bi bi-spotify"></i>
+            </a>
+          </div>
+        </div>
+      </footer>
+    </section>
+
+    <!-- Audio Toggle -->
+    <div
+      id="audioToggle"
+      onclick="toggleAudio()"
+      class="text-3xl text-[#A08963] cursor-pointer fixed bottom-5 right-5 z-50 hidden p-3"
+    >
+      <i class="bi bi-volume-up" id="audioIcon"></i>
+    </div>
+
+    <!-- Background Audio -->
+    <audio id="backsound" loop>
+      <source src="./audio/audio-ayu.mp3" type="audio/mpeg" />
+      Browser Anda tidak mendukung audio HTML5.
+    </audio>
+
+    <script>
+      // URL parameter handling
+      const urlParams = new URLSearchParams(window.location.search);
+      const namaTamu = urlParams.get("untuk") || "Tamu";
+      document.getElementById("namaTamu").textContent = namaTamu;
+
+      // Countdown Timer
+      const countDownDate = new Date("August 9, 2025 00:00:00").getTime();
+      const countdownFunction = setInterval(function () {
+        const now = new Date().getTime();
+        const distance = countDownDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = days;
+        document.getElementById("hours").innerText = hours;
+        document.getElementById("minutes").innerText = minutes;
+        document.getElementById("seconds").innerText = seconds;
+
+        if (distance < 0) {
+          clearInterval(countdownFunction);
+          document.getElementById("days").innerText = "0";
+          document.getElementById("hours").innerText = "0";
+          document.getElementById("minutes").innerText = "0";
+          document.getElementById("seconds").innerText = "0";
+        }
+      }, 1000);
+
+      // Form submission
+      window.addEventListener("load", function () {
+        const form = document.getElementById("my-form");
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const data = new FormData(form);
+          const action = e.target.action;
+          fetch(action, {
+            method: "POST",
+            body: data,
+          }).then(() => {
+            alert("berhasil dikirim");
+          });
+        });
+      });
+
+      // Scroll animation
+      document.addEventListener("DOMContentLoaded", function () {
+        const elements = document.querySelectorAll(".scroll-animate");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+        elements.forEach((el) => observer.observe(el));
+      });
+
+      // Open invitation function
+      function openInvitation() {
+        document.getElementById("pembukaan").classList.remove("hidden");
+        document.getElementById("audioToggle").style.display = "inline-block";
+
+        const backsound = document.getElementById("backsound");
+        backsound.play().catch((err) => {
+          console.log("Autoplay gagal:", err);
+        });
+
+        document.getElementById("openInvitation").style.display = "none";
+        document.getElementById("hero").classList.add("hidden");
+      }
+
+      // Audio toggle function
+      function toggleAudio() {
+        const audio = document.getElementById("backsound");
+        const icon = document.getElementById("audioIcon");
+
+        if (audio.paused) {
+          audio.play();
+          icon.classList.remove("bi-volume-mute-fill");
+          icon.classList.add("bi-volume-up");
+        } else {
+          audio.pause();
+          icon.classList.remove("bi-volume-up");
+          icon.classList.add("bi-volume-mute-fill");
+        }
+      }
+    </script>
+
+    <!-- galeri -->
+     <script>
+  const slider = document.getElementById('slider');
+  const prev = document.getElementById('prev');
+  const next = document.getElementById('next');
+
+  const totalSlides = slider.children.length;
+  let index = 0;
+
+  function updateSlider() {
+    slider.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  // Navigasi manual
+  next.addEventListener('click', () => {
+    index = (index + 1) % totalSlides;
+    updateSlider();
+  });
+
+  prev.addEventListener('click', () => {
+    index = (index - 1 + totalSlides) % totalSlides;
+    updateSlider();
+  });
+
+  // Auto slide setiap 3 detik
+  setInterval(() => {
+    index = (index + 1) % totalSlides;
+    updateSlider();
+  }, 3000);
+</script>
+
+  </body>
+</html>
